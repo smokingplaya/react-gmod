@@ -11,7 +11,7 @@
 local versionValidatorEnabled = true
 
 --- Constants
-local VERSION = "1.0.0"
+local VERSION = "1.0.2"
 local ADDON_JSON = "https://raw.githubusercontent.com/smokingplaya/react-gmod/refs/heads/main/addon.json"
 
 --- Logs
@@ -46,6 +46,33 @@ local getVersion = function(onSuccess, onFailure)
   getAddonData(function(data)
     onSuccess(data.version)
   end, onFailure)
+end
+
+local splitVersion = function(version)
+  local parts = {}
+
+  for part in string.gmatch(version, "(%d+)") do
+    parts[#parts+1] = tonumber(part)
+  end
+
+  return parts
+end
+
+local isOutdated = function(currentVersion)
+  local v1 = splitVersion(VERSION)
+  local v2 = splitVersion(currentVersion)
+
+  for i = 1, math.max(#v1, #v2) do
+    local part1 = v1[i] or 0
+    local part2 = v2[i] or 0
+    if part1 < part2 then
+      return true
+    elseif part1 > part2 then
+      return false
+    end
+  end
+
+  return false -- версии равны
 end
 
 local validateVersion = function(onSuccess)
