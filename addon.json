@@ -1,0 +1,9 @@
+{
+  "$schema": "https://raw.githubusercontent.com/autumncommunity/json/refs/heads/main/addon-scheme.json",
+
+  "name": "react-gmod",
+  "description": "React GMOD is a library that allows you to easily create UIs with ReactJS in Garry's Mod.",
+  "authors": ["smokingplaya"],
+  "version": "1.0.0",
+  "git": "https://github.com/smokingplaya/react-gmod"
+}
