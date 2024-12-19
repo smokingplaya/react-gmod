@@ -93,19 +93,19 @@ bun run build
 ## 📂 Copy the Built Files to the WebUI Folder
 
 By default, all compiled project files will be located in the ``dist/`` folder.\
-Simply copy the files from ``dist/`` to ``GarrysModDS/garrysmod/ui/{webui-gmod-test}/``.
+Simply copy the files from ``dist/`` to ``GarrysModDS/garrysmod/webui/webui-gmod-test/``.
 
 ### Final Folder Structure:
 ```text
 # Vite Project
-{webui-gmod-test}/
+webui-gmod-test/
   └── dist/
 
 # Garry's Mod DS
 GarrysModDS/
   └── garrysmod/
-    └── ui/
-      └── {webui-gmod-test}/
+    └── webui/
+      └── webui-gmod-test/
         ├── assets/
         └── index.html
 ```
