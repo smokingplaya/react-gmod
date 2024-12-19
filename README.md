@@ -22,6 +22,9 @@ very easy to create client Web interfaces in Garry's Mod.
 ### Client:
 1. Install [GMODCefFix](https://github.com/solsticegamestudios/GModCEFCodecFix) or just use [PrettyGMOD](https://github.com/smokingplaya/prettygmod) (utility that installs many necessary patches)
 
+# Guides
+* [Simple username rendering with ReactJS in 2 minutes](./.guide/react.md)
+
 # The idea
 VGUI is cool, as long as you don't need to make the interface more complicated than Windows 98.\
 You need to think how to make roundings, how to work with stensils (by the way, there are still no normal guides on them), and at the same time you should not forget about optimization.\
