@@ -93,7 +93,7 @@ local validateVersion = function(onSuccess)
 end
 
 local updateResources = function()
-  todo()
+  --- Todo @ add files through 'resource' library
 end
 
 --- Addon load
@@ -102,7 +102,6 @@ if (SERVER) then
     log(("WebUI-GMod %s by smokingplaya<3"):format(VERSION))
     log("\thttps://github.com/smokingplaya/webui-gmod")
 
-    --- Todo @ add files through 'resource' library
     updateResources()
   end)
 end
@@ -233,10 +232,3 @@ vgui.Register("webuiHtml", {
     return self
   end
 }, "DHTML")
-
-concommand.Add("webui_test", function()
-  webui:create("hud")
-    :define("getUsername", function()
-      return LocalPlayer():Nick()
-    end)
-end)
