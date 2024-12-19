@@ -32,7 +32,7 @@ But why reinvent the wheel when there is a Web that already has all the necessar
 This is the question I asked myself, and this is what we got.
 
 # Documentation
-You can see documentation [here](https://github.com/smokingplaya/webui-gmod/docs).
+You can see documentation [here](./.guide).
 
 # License
 The library is distributed under the [GNU GPL v3 license](LICENSE)
