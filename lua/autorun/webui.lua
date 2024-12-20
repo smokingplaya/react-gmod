@@ -7,11 +7,19 @@
 --- Distributed under the GNU GPLv3
 
 --- Config
+
 -- ? Should we check version of webui-gmod or not
 local versionValidatorEnabled = true
+-- ? Should we use custom webserver
+local customWebserver = false;
+-- ? Custom webserver url
+-- ! There should be no slash at the end
+local customWebserverUrl = "https://example.com";
+-- ? On which port the web server will be binded
+local webserverPort = 8091
 
 --- Constants
-local VERSION = "1.0.3"
+local VERSION = "1.0.4"
 local ADDON_JSON = "https://raw.githubusercontent.com/smokingplaya/webui-gmod/refs/heads/main/addon.json"
 
 --- Logs
@@ -19,7 +27,7 @@ local logColor = Color(0, 255, 255)
 local whitespace = " "
 
 local log = function(...)
-  MsgC(logColor, "[webui-gmod]", whitespace, color_white, ...)
+  MsgC(logColor, "[WebUI-GMod]", whitespace, color_white, ...)
   MsgN()
 end
 
@@ -92,17 +100,17 @@ local validateVersion = function(onSuccess)
   end)
 end
 
-local updateResources = function()
-  --- Todo @ add files through 'resource' library
-end
-
 --- Addon load
 if (SERVER) then
   validateVersion(function()
     log(("WebUI-GMod %s by smokingplaya<3"):format(VERSION))
-    log("\thttps://github.com/smokingplaya/webui-gmod")
+    log("https://github.com/smokingplaya/webui-gmod")
 
-    updateResources()
+    if (!customWebserver) then
+      require("webui_server")
+
+      webui_server.run(webserverPort)
+    end
   end)
 end
 
@@ -111,8 +119,12 @@ if (!CLIENT) then
   return
 end
 
+local ip = game.GetIPAddress()
+  :Split(":")[1]
+
 webui = webui || {
-  base = "asset://garrysmod/" .. (game.SinglePlayer() and "webui/%s/%s" or "data/%s/%s"),
+  base = game.SinglePlayer() and "asset://garrysmod/webui/%s/%s"
+    or (customWebserver and customWebserverUrl .. "/%s/%s" or "http://" .. ip .. ":" .. webserverPort .. "/%s/%s"),
   list = {},
 
   create = function(self, page)

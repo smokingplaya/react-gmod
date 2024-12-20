@@ -4,6 +4,6 @@
   "name": "webui-gmod",
   "description": "WebUI-GMOD is a library that allows you to easily create UIs with web technologies in Garry's Mod.",
   "authors": ["smokingplaya"],
-  "version": "1.0.3",
+  "version": "1.0.4",
   "git": "https://github.com/smokingplaya/webui-gmod"
 }

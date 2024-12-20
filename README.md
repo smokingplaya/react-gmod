@@ -18,6 +18,20 @@ very easy to create client Web interfaces in Garry's Mod.
 ### Server:
 1. Download [latest release of WebUI-GMod](https://github.com/smokingplaya/webui-gmod/releases/latest)
 2. Copy ``lua`` folder from archive and paste it in ``GarrysModDS/garrysmod/``
+3. Customize the config to your liking:
+```lua
+-- ? Should we check version of webui-gmod or not
+local versionValidatorEnabled = true
+-- ? Should we use custom webserver for UI's hosting
+local customWebserver = false;
+-- ? Custom webserver url
+-- ! There should be no slash at the end
+local customWebserverUrl = "https://example.com";
+-- ? On which port the web server will be binded
+local webserverPort = 8091
+```
+Or don't touch anything if you don't understand why it's necessary.
+4. If you are not using a custom web server, then install the [WebUI-Server](https://github.com/smokingplaya/webui-server) module (you need to build a web server that will send UI files).
 
 ### Client:
 1. Install [GMODCefFix](https://github.com/solsticegamestudios/GModCEFCodecFix) or just use [PrettyGMOD](https://github.com/smokingplaya/prettygmod) (utility that installs many necessary patches)
